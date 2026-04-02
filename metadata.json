@@ -5,6 +5,6 @@
   "shell-version": ["45", "46", "47", "48", "49"],
   "settings-schema": "org.gnome.shell.extensions.nautilus-zebra",
   "gettext-domain": "nautilus-zebra",
-  "url": "https://github.com/crrood/nautilus-zebra",
+  "url": "https://github.com/sedax90/nautilus-zebra",
   "version": 1
 }
