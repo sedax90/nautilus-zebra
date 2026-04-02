@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "Nautilus Zebra"
+msgstr "Nautilus Zebra"
+
+msgid "Zebra Striping"
+msgstr "Zebra Striping"
+
+msgid "Apply alternating colors to rows in Nautilus list view"
+msgstr "Apply alternating colors to rows in Nautilus list view"
+
+msgid "Enable zebra striping"
+msgstr "Enable zebra striping"
+
+msgid "Requires Nautilus restart to apply"
+msgstr "Requires Nautilus restart to apply"
+
+msgid "Appearance"
+msgstr "Appearance"
+
+msgid "Row color"
+msgstr "Row color"
+
+msgid "Choose the color of alternating rows"
+msgstr "Choose the color of alternating rows"
+
+msgid "Choose zebra color"
+msgstr "Choose zebra color"
+
+msgid "Opacity"
+msgstr "Opacity"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Documents"
+msgstr "Documents"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "Reset to defaults"
+msgstr "Reset to defaults"
+
+msgid "Presets"
+msgstr "Presets"
+
+msgid "Quick color presets"
+msgstr "Quick color presets"
+
+msgid "Gray"
+msgstr "Gray"
+
+msgid "Blue"
+msgstr "Blue"
+
+msgid "Green"
+msgstr "Green"
+
+msgid "Warm"
+msgstr "Warm"
+
+msgid "Gray color, 5% opacity"
+msgstr "Gray color, 5% opacity"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
+msgstr "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."

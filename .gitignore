@@ -1,0 +1,3 @@
+schemas/gschemas.compiled
+locale/*/LC_MESSAGES/*.mo
+*.zip

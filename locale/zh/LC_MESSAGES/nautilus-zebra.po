@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh\n"
+
+msgid "Nautilus Zebra"
+msgstr "Nautilus 斑马纹"
+
+msgid "Zebra Striping"
+msgstr "斑马纹条纹"
+
+msgid "Apply alternating colors to rows in Nautilus list view"
+msgstr "在 Nautilus 列表视图中为行应用交替颜色"
+
+msgid "Enable zebra striping"
+msgstr "启用斑马纹条纹"
+
+msgid "Requires Nautilus restart to apply"
+msgstr "需要重启 Nautilus 才能生效"
+
+msgid "Appearance"
+msgstr "外观"
+
+msgid "Row color"
+msgstr "行颜色"
+
+msgid "Choose the color of alternating rows"
+msgstr "选择交替行的颜色"
+
+msgid "Choose zebra color"
+msgstr "选择斑马纹颜色"
+
+msgid "Opacity"
+msgstr "不透明度"
+
+msgid "Preview"
+msgstr "预览"
+
+msgid "Documents"
+msgstr "文档"
+
+msgid "Images"
+msgstr "图片"
+
+msgid "Folder"
+msgstr "文件夹"
+
+msgid "Reset to defaults"
+msgstr "恢复默认值"
+
+msgid "Presets"
+msgstr "预设"
+
+msgid "Quick color presets"
+msgstr "快速颜色预设"
+
+msgid "Gray"
+msgstr "灰色"
+
+msgid "Blue"
+msgstr "蓝色"
+
+msgid "Green"
+msgstr "绿色"
+
+msgid "Warm"
+msgstr "暖色"
+
+msgid "Gray color, 5% opacity"
+msgstr "灰色，不透明度 5%"
+
+msgid "Note"
+msgstr "提示"
+
+msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
+msgstr "更改将在 Nautilus 重启后生效。\n使用面板中的快速切换按钮来启用/禁用。"

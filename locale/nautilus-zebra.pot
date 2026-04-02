@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Nautilus Zebra"
+msgstr ""
+
+msgid "Zebra Striping"
+msgstr ""
+
+msgid "Apply alternating colors to rows in Nautilus list view"
+msgstr ""
+
+msgid "Enable zebra striping"
+msgstr ""
+
+msgid "Requires Nautilus restart to apply"
+msgstr ""
+
+msgid "Appearance"
+msgstr ""
+
+msgid "Row color"
+msgstr ""
+
+msgid "Choose the color of alternating rows"
+msgstr ""
+
+msgid "Choose zebra color"
+msgstr ""
+
+msgid "Opacity"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Documents"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Folder"
+msgstr ""
+
+msgid "Reset to defaults"
+msgstr ""
+
+msgid "Presets"
+msgstr ""
+
+msgid "Quick color presets"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Blue"
+msgstr ""
+
+msgid "Green"
+msgstr ""
+
+msgid "Warm"
+msgstr ""
+
+msgid "Gray color, 5% opacity"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
+msgstr ""

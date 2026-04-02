@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: it\n"
+
+msgid "Nautilus Zebra"
+msgstr "Nautilus Zebra"
+
+msgid "Zebra Striping"
+msgstr "Zebratura Righe"
+
+msgid "Apply alternating colors to rows in Nautilus list view"
+msgstr "Applica colori alternati alle righe nella vista elenco di Nautilus"
+
+msgid "Enable zebra striping"
+msgstr "Attiva zebratura"
+
+msgid "Requires Nautilus restart to apply"
+msgstr "Richiede il riavvio di Nautilus per applicare"
+
+msgid "Appearance"
+msgstr "Aspetto"
+
+msgid "Row color"
+msgstr "Colore della riga"
+
+msgid "Choose the color of alternating rows"
+msgstr "Scegli il colore delle righe alternate"
+
+msgid "Choose zebra color"
+msgstr "Scegli colore zebratura"
+
+msgid "Opacity"
+msgstr "Opacità"
+
+msgid "Preview"
+msgstr "Anteprima"
+
+msgid "Documents"
+msgstr "Documenti"
+
+msgid "Images"
+msgstr "Immagini"
+
+msgid "Folder"
+msgstr "Cartella"
+
+msgid "Reset to defaults"
+msgstr "Ripristina valori predefiniti"
+
+msgid "Presets"
+msgstr "Preset"
+
+msgid "Quick color presets"
+msgstr "Preset colore rapidi"
+
+msgid "Gray"
+msgstr "Grigio"
+
+msgid "Blue"
+msgstr "Blu"
+
+msgid "Green"
+msgstr "Verde"
+
+msgid "Warm"
+msgstr "Caldo"
+
+msgid "Gray color, 5% opacity"
+msgstr "Colore grigio, opacità 5%"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
+msgstr "Le modifiche vengono applicate al riavvio di Nautilus.\nUsa il toggle rapido nel pannello per attivare/disattivare."
