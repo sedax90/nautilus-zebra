@@ -6,5 +6,5 @@
   "settings-schema": "org.gnome.shell.extensions.nautilus-zebra",
   "gettext-domain": "nautilus-zebra",
   "url": "https://github.com/sedax90/nautilus-zebra",
-  "version": 1
+  "version": 2
 }

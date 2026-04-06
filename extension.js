@@ -12,20 +12,14 @@ const CSS_FILE = GLib.get_home_dir() + '/.config/gtk-4.0/gtk.css';
 const MARKER_START = '/* --- nautilus-zebra-start --- */';
 const MARKER_END = '/* --- nautilus-zebra-end --- */';
 
-function removeCSS() {
-    let content = '';
-    try {
-        const [ok, data] = GLib.file_get_contents(CSS_FILE);
-        if (ok)
-            content = new TextDecoder().decode(data);
-    } catch (e) {
-        return;
-    }
+Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
+Gio._promisify(Gio.File.prototype, 'replace_contents_async', 'replace_contents_finish');
 
+function stripZebraBlock(content) {
     const startIdx = content.indexOf(MARKER_START);
     const endIdx = content.indexOf(MARKER_END);
     if (startIdx === -1 || endIdx === -1)
-        return;
+        return null;
 
     const before = content.substring(0, startIdx).trimEnd();
     const after = content.substring(endIdx + MARKER_END.length).trimStart();
@@ -35,11 +29,39 @@ function removeCSS() {
             result += '\n\n';
         result += after;
     }
-
-    GLib.file_set_contents(CSS_FILE, result);
+    return result;
 }
 
-function applyCSS(settings) {
+async function readCSSFile() {
+    const file = Gio.File.new_for_path(CSS_FILE);
+    try {
+        const [contents] = await file.load_contents_async(null);
+        return new TextDecoder().decode(contents);
+    } catch (e) {
+        return '';
+    }
+}
+
+async function writeCSSFile(text) {
+    const file = Gio.File.new_for_path(CSS_FILE);
+    await file.replace_contents_async(
+        new TextEncoder().encode(text),
+        null, false, Gio.FileCreateFlags.NONE, null);
+}
+
+async function removeCSS() {
+    const content = await readCSSFile();
+    if (!content)
+        return;
+
+    const result = stripZebraBlock(content);
+    if (result === null)
+        return;
+
+    await writeCSSFile(result);
+}
+
+async function applyCSS(settings) {
     const enabled = settings.get_boolean('enabled');
     const color = settings.get_string('stripe-color');
     const opacity = settings.get_int('opacity');
@@ -52,10 +74,11 @@ function applyCSS(settings) {
         b = parseInt(rgbaMatch[3]);
     }
     const a = (opacity / 100).toFixed(3);
+    const parity = settings.get_boolean('start-on-even') ? 'even' : 'odd';
 
     const zebraCSS = `${MARKER_START}
 /* Zebra striping for Nautilus list view */
-.nautilus-list-view columnview > listview > row:nth-child(even):not(:selected):not(:hover):not(:active) {
+.nautilus-list-view columnview > listview > row:nth-child(${parity}):not(:selected):not(:hover):not(:active) {
     background-color: rgba(${r},${g},${b},${a});
 }
 ${MARKER_END}`;
@@ -63,28 +86,12 @@ ${MARKER_END}`;
     const dir = GLib.get_home_dir() + '/.config/gtk-4.0';
     GLib.mkdir_with_parents(dir, 0o755);
 
-    let content = '';
-    try {
-        const [ok, data] = GLib.file_get_contents(CSS_FILE);
-        if (ok)
-            content = new TextDecoder().decode(data);
-    } catch (e) {
-        // File doesn't exist yet
-    }
+    let content = await readCSSFile();
 
     // Strip existing zebra CSS
-    const startIdx = content.indexOf(MARKER_START);
-    const endIdx = content.indexOf(MARKER_END);
-    if (startIdx !== -1 && endIdx !== -1) {
-        const before = content.substring(0, startIdx).trimEnd();
-        const after = content.substring(endIdx + MARKER_END.length).trimStart();
-        content = before;
-        if (after) {
-            if (content)
-                content += '\n\n';
-            content += after;
-        }
-    }
+    const stripped = stripZebraBlock(content);
+    if (stripped !== null)
+        content = stripped;
 
     if (enabled) {
         if (content.trim())
@@ -93,10 +100,10 @@ ${MARKER_END}`;
             content = zebraCSS + '\n';
     }
 
-    GLib.file_set_contents(CSS_FILE, content);
+    await writeCSSFile(content);
 
     try {
-        GLib.spawn_command_line_async('nautilus -q');
+        Gio.Subprocess.new(['nautilus', '-q'], Gio.SubprocessFlags.NONE);
     } catch (e) {
         // Nautilus may not be running
     }
@@ -117,7 +124,7 @@ class NautilusZebraToggle extends QuickSettings.QuickToggle {
             Gio.SettingsBindFlags.DEFAULT);
 
         this.connect('clicked', () => {
-            applyCSS(this._settings);
+            applyCSS(this._settings).catch(console.error);
         });
     }
 });
@@ -149,10 +156,10 @@ export default class NautilusZebraExtension extends Extension {
 
         // Restore CSS if zebra was enabled
         if (this._settings.get_boolean('enabled'))
-            applyCSS(this._settings);
+            applyCSS(this._settings).catch(console.error);
 
         this._settingsChangedId = this._settings.connect('changed', () => {
-            applyCSS(this._settings);
+            applyCSS(this._settings).catch(console.error);
         });
     }
 
@@ -163,12 +170,13 @@ export default class NautilusZebraExtension extends Extension {
         }
 
         // Remove CSS when extension is disabled and restart Nautilus
-        removeCSS();
-        try {
-            GLib.spawn_command_line_async('nautilus -q');
-        } catch (e) {
-            // Nautilus may not be running
-        }
+        removeCSS().then(() => {
+            try {
+                Gio.Subprocess.new(['nautilus', '-q'], Gio.SubprocessFlags.NONE);
+            } catch (e) {
+                // Nautilus may not be running
+            }
+        }).catch(console.error);
 
         this._indicator?.destroy();
         this._indicator = null;

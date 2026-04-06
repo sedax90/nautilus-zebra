@@ -66,6 +66,12 @@ msgstr "绿色"
 msgid "Warm"
 msgstr "暖色"
 
+msgid "Start on even rows"
+msgstr "从偶数行开始"
+
+msgid "Disable to stripe odd rows instead"
+msgstr "关闭以改为着色奇数行"
+
 msgid "Gray color, 5% opacity"
 msgstr "灰色，不透明度 5%"
 

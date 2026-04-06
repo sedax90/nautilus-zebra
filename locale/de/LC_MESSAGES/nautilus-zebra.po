@@ -66,6 +66,12 @@ msgstr "Grün"
 msgid "Warm"
 msgstr "Warm"
 
+msgid "Start on even rows"
+msgstr "Bei geraden Zeilen beginnen"
+
+msgid "Disable to stripe odd rows instead"
+msgstr "Deaktivieren, um ungerade Zeilen zu färben"
+
 msgid "Gray color, 5% opacity"
 msgstr "Graue Farbe, 5% Deckkraft"
 

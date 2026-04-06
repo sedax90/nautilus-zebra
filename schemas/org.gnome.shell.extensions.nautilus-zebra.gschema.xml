@@ -22,5 +22,11 @@
       <range min="1" max="30"/>
     </key>
 
+    <key name="start-on-even" type="b">
+      <default>true</default>
+      <summary>Start striping on even rows</summary>
+      <description>If true, even rows are striped; if false, odd rows are striped</description>
+    </key>
+
   </schema>
 </schemalist>

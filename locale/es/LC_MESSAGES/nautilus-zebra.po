@@ -66,6 +66,12 @@ msgstr "Verde"
 msgid "Warm"
 msgstr "Cálido"
 
+msgid "Start on even rows"
+msgstr "Empezar en las filas pares"
+
+msgid "Disable to stripe odd rows instead"
+msgstr "Desactivar para colorear las filas impares"
+
 msgid "Gray color, 5% opacity"
 msgstr "Color gris, opacidad 5%"
 

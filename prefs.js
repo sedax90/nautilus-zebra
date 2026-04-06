@@ -72,6 +72,14 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
         colorRow.add_suffix(colorButton);
         colorGroup.add(colorRow);
 
+        // Parity toggle (even/odd)
+        const parityRow = new Adw.SwitchRow({
+            title: _('Start on even rows'),
+            subtitle: _('Disable to stripe odd rows instead'),
+        });
+        settings.bind('start-on-even', parityRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        colorGroup.add(parityRow);
+
         // Opacity slider
         const opacityRow = new Adw.ActionRow({
             title: _('Opacity'),
@@ -117,6 +125,7 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
 
             const enabled = settings.get_boolean('enabled');
             const opacity = settings.get_int('opacity');
+            const startOnEven = settings.get_boolean('start-on-even');
             const colorStr = settings.get_string('stripe-color');
             const rgba = new Gdk.RGBA();
             rgba.parse(colorStr);
@@ -141,7 +150,8 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
                     marginBottom: 6,
                 });
 
-                if (enabled && i % 2 === 1) {
+                const isStriped = startOnEven ? (i % 2 === 1) : (i % 2 === 0);
+                if (enabled && isStriped) {
                     const r = Math.round(rgba.red * 255);
                     const g = Math.round(rgba.green * 255);
                     const b = Math.round(rgba.blue * 255);
