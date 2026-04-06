@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <clipPath id="sq">
+      <path id="squircle" d="
+        M 64,2
+        C 95,2  108,2  116,10
+        C 126,18 126,33 126,64
+        C 126,95 126,110 116,118
+        C 108,126 95,126 64,126
+        C 33,126 20,126 12,118
+        C 2,110  2,95   2,64
+        C 2,33  2,18   12,10
+        C 20,2  33,2   64,2 Z" />
+    </clipPath>
+  </defs>
+
+  <!-- Squircle background -->
+  <use href="#squircle" fill="#ffffff" />
+
+  <!-- Organic zebra stripes -->
+  <g clip-path="url(#sq)">
+    <path d="M-10 8 Q20 18 30 8 Q40 -2 60 6 Q80 14 100 4 Q120 -6 140 8 L140 28 Q120 18 100 26 Q80 34 60 26 Q40 18 30 28 Q20 38 -10 28 Z" fill="#2e3436" opacity="0.85" />
+    <path d="M-10 44 Q20 54 30 44 Q40 34 60 42 Q80 50 100 40 Q120 30 140 44 L140 64 Q120 54 100 62 Q80 70 60 62 Q40 54 30 64 Q20 74 -10 64 Z" fill="#2e3436" opacity="0.85" />
+    <path d="M-10 80 Q20 90 30 80 Q40 70 60 78 Q80 86 100 76 Q120 66 140 80 L140 100 Q120 90 100 98 Q80 106 60 98 Q40 90 30 100 Q20 110 -10 100 Z" fill="#2e3436" opacity="0.85" />
+    <path d="M-10 112 Q20 122 30 114 Q40 106 60 112 Q80 118 100 110 Q120 102 140 112 L140 140 L-10 140 Z" fill="#2e3436" opacity="0.85" />
+  </g>
+
+  <!-- Central list card -->
+  <rect x="26" y="26" width="76" height="82" rx="10" fill="#ffffff" opacity="0.97" />
+  <rect x="26" y="26" width="76" height="82" rx="10" fill="none" stroke="#c0bfbc" stroke-width="1" />
+
+  <!-- Zebra rows -->
+  <rect x="27" y="40" width="74" height="13" fill="#2e3436" opacity="0.07" />
+  <rect x="27" y="66" width="74" height="13" fill="#2e3436" opacity="0.07" />
+  <rect x="27" y="92" width="74" height="15" rx="0 0 9 9" fill="#2e3436" opacity="0.07" />
+
+  <!-- Row 1: folder -->
+  <path d="M35 30 L37.5 30 L39 32 L43 32 C44 32 44 32.5 44 33 L44 37 C44 38 43.5 38 43 38 L35 38 C34.5 38 34 38 34 37 L34 31 C34 30 34.5 30 35 30 Z" fill="#e5a50a" />
+  <rect x="48" y="32.5" width="24" height="3" rx="1.5" fill="#3d3846" opacity="0.55" />
+
+  <!-- Row 2: folder (striped) -->
+  <path d="M35 43 L37.5 43 L39 45 L43 45 C44 45 44 45.5 44 46 L44 50 C44 51 43.5 51 43 51 L35 51 C34.5 51 34 51 34 50 L34 44 C34 43 34.5 43 35 43 Z" fill="#e5a50a" />
+  <rect x="48" y="45.5" width="30" height="3" rx="1.5" fill="#3d3846" opacity="0.55" />
+
+  <!-- Row 3: file -->
+  <rect x="34" y="56" width="10" height="12" rx="1.5" fill="#3584e4" opacity="0.8" />
+  <path d="M40 56 L44 60 L40 60 Z" fill="#ffffff" opacity="0.4" />
+  <rect x="48" y="60.5" width="20" height="3" rx="1.5" fill="#3d3846" opacity="0.55" />
+
+  <!-- Row 4: file (striped) -->
+  <rect x="34" y="69" width="10" height="12" rx="1.5" fill="#26a269" opacity="0.8" />
+  <path d="M40 69 L44 73 L40 73 Z" fill="#ffffff" opacity="0.4" />
+  <rect x="48" y="73.5" width="26" height="3" rx="1.5" fill="#3d3846" opacity="0.55" />
+
+  <!-- Row 5: file -->
+  <rect x="34" y="82" width="10" height="12" rx="1.5" fill="#c01c28" opacity="0.8" />
+  <path d="M40 82 L44 86 L40 86 Z" fill="#ffffff" opacity="0.4" />
+  <rect x="48" y="86.5" width="22" height="3" rx="1.5" fill="#3d3846" opacity="0.55" />
+
+  <!-- Row 6: folder (striped) -->
+  <path d="M35 95 L37.5 95 L39 97 L43 97 C44 97 44 97.5 44 98 L44 102 C44 103 43.5 103 43 103 L35 103 C34.5 103 34 103 34 102 L34 96 C34 95 34.5 95 35 95 Z" fill="#e5a50a" />
+  <rect x="48" y="97.5" width="28" height="3" rx="1.5" fill="#3d3846" opacity="0.55" />
+</svg>
