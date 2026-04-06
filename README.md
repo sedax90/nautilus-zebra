@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon-8-zebra-wave.svg" width="128" height="128" alt="Nautilus Zebra icon" />
+  <img src="icon.svg" width="128" height="128" alt="Nautilus Zebra icon" />
 </p>
 
 <h1 align="center">Nautilus Zebra</h1>
