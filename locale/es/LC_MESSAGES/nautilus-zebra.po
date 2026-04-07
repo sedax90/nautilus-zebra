@@ -6,18 +6,6 @@ msgstr ""
 msgid "Nautilus Zebra"
 msgstr "Nautilus Zebra"
 
-msgid "Zebra Striping"
-msgstr "Franjas de cebra"
-
-msgid "Apply alternating colors to rows in Nautilus list view"
-msgstr "Aplicar colores alternos a las filas en la vista de lista de Nautilus"
-
-msgid "Enable zebra striping"
-msgstr "Activar franjas de cebra"
-
-msgid "Requires Nautilus restart to apply"
-msgstr "Requiere reiniciar Nautilus para aplicar"
-
 msgid "Appearance"
 msgstr "Apariencia"
 
@@ -78,5 +66,5 @@ msgstr "Color gris, opacidad 5%"
 msgid "Note"
 msgstr "Nota"
 
-msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
-msgstr "Los cambios se aplican al reiniciar Nautilus.\nUsa el botón rápido en el panel para activar/desactivar."
+msgid "Changes are applied when Nautilus restarts."
+msgstr "Los cambios se aplican al reiniciar Nautilus."

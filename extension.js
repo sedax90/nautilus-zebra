@@ -2,11 +2,7 @@
 
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
-import GObject from 'gi://GObject';
-
-import { Extension, gettext as _ } from 'resource:///org/gnome/shell/extensions/extension.js';
-import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
-import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 
 const CSS_FILE = GLib.get_home_dir() + '/.config/gtk-4.0/gtk.css';
 const MARKER_START = '/* --- nautilus-zebra-start --- */';
@@ -62,7 +58,6 @@ async function removeCSS() {
 }
 
 async function applyCSS(settings) {
-    const enabled = settings.get_boolean('enabled');
     const color = settings.get_string('stripe-color');
     const opacity = settings.get_int('opacity');
 
@@ -93,12 +88,10 @@ ${MARKER_END}`;
     if (stripped !== null)
         content = stripped;
 
-    if (enabled) {
-        if (content.trim())
-            content = content.trimEnd() + '\n\n' + zebraCSS + '\n';
-        else
-            content = zebraCSS + '\n';
-    }
+    if (content.trim())
+        content = content.trimEnd() + '\n\n' + zebraCSS + '\n';
+    else
+        content = zebraCSS + '\n';
 
     await writeCSSFile(content);
 
@@ -109,54 +102,11 @@ ${MARKER_END}`;
     }
 }
 
-const NautilusZebraToggle = GObject.registerClass(
-class NautilusZebraToggle extends QuickSettings.QuickToggle {
-    _init(settings) {
-        super._init({
-            title: 'Nautilus Zebra',
-            iconName: 'view-list-symbolic',
-            toggleMode: true,
-        });
-
-        this._settings = settings;
-
-        settings.bind('enabled', this, 'checked',
-            Gio.SettingsBindFlags.DEFAULT);
-
-        this.connect('clicked', () => {
-            applyCSS(this._settings).catch(console.error);
-        });
-    }
-});
-
-const NautilusZebraIndicator = GObject.registerClass(
-class NautilusZebraIndicator extends QuickSettings.SystemIndicator {
-    _init(settings) {
-        super._init();
-        this.visible = false;
-
-        this._settings = settings;
-
-        this._toggle = new NautilusZebraToggle(settings);
-        this.quickSettingsItems.push(this._toggle);
-    }
-
-    destroy() {
-        this.quickSettingsItems.forEach(item => item.destroy());
-        super.destroy();
-    }
-});
-
 export default class NautilusZebraExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
-        this._indicator = new NautilusZebraIndicator(this._settings);
 
-        Main.panel.statusArea.quickSettings.addExternalIndicator(this._indicator);
-
-        // Restore CSS if zebra was enabled
-        if (this._settings.get_boolean('enabled'))
-            applyCSS(this._settings).catch(console.error);
+        applyCSS(this._settings).catch(console.error);
 
         this._settingsChangedId = this._settings.connect('changed', () => {
             applyCSS(this._settings).catch(console.error);
@@ -169,7 +119,6 @@ export default class NautilusZebraExtension extends Extension {
             this._settingsChangedId = null;
         }
 
-        // Remove CSS when extension is disabled and restart Nautilus
         removeCSS().then(() => {
             try {
                 Gio.Subprocess.new(['nautilus', '-q'], Gio.SubprocessFlags.NONE);
@@ -178,8 +127,6 @@ export default class NautilusZebraExtension extends Extension {
             }
         }).catch(console.error);
 
-        this._indicator?.destroy();
-        this._indicator = null;
         this._settings = null;
     }
 }

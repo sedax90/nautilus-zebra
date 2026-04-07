@@ -20,23 +20,10 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
         });
         window.add(page);
 
-        // --- Enable group ---
-        const enableGroup = new Adw.PreferencesGroup({
-            title: _('Zebra Striping'),
-            description: _('Apply alternating colors to rows in Nautilus list view'),
-        });
-        page.add(enableGroup);
-
-        const enableRow = new Adw.SwitchRow({
-            title: _('Enable zebra striping'),
-            subtitle: _('Requires Nautilus restart to apply'),
-        });
-        settings.bind('enabled', enableRow, 'active', Gio.SettingsBindFlags.DEFAULT);
-        enableGroup.add(enableRow);
-
-        // --- Color group ---
+        // --- Appearance group ---
         const colorGroup = new Adw.PreferencesGroup({
             title: _('Appearance'),
+            description: _('Apply alternating colors to rows in Nautilus list view'),
         });
         page.add(colorGroup);
 
@@ -123,7 +110,6 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
                 child = next;
             }
 
-            const enabled = settings.get_boolean('enabled');
             const opacity = settings.get_int('opacity');
             const startOnEven = settings.get_boolean('start-on-even');
             const colorStr = settings.get_string('stripe-color');
@@ -151,7 +137,7 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
                 });
 
                 const isStriped = startOnEven ? (i % 2 === 1) : (i % 2 === 0);
-                if (enabled && isStriped) {
+                if (isStriped) {
                     const r = Math.round(rgba.red * 255);
                     const g = Math.round(rgba.green * 255);
                     const b = Math.round(rgba.blue * 255);
@@ -219,7 +205,7 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
         resetButton.connect('clicked', () => {
             settings.reset('stripe-color');
             settings.reset('opacity');
-            settings.reset('enabled');
+            settings.reset('start-on-even');
 
             const defColor = new Gdk.RGBA();
             defColor.parse(settings.get_string('stripe-color'));
@@ -236,7 +222,7 @@ export default class NautilusZebraPrefs extends ExtensionPreferences {
 
         const infoRow = new Adw.ActionRow({
             title: _('Note'),
-            subtitle: _('Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable.'),
+            subtitle: _('Changes are applied when Nautilus restarts.'),
             subtitleLines: 3,
             iconName: 'dialog-information-symbolic',
         });

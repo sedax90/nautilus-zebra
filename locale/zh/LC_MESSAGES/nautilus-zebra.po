@@ -6,18 +6,6 @@ msgstr ""
 msgid "Nautilus Zebra"
 msgstr "Nautilus 斑马纹"
 
-msgid "Zebra Striping"
-msgstr "斑马纹条纹"
-
-msgid "Apply alternating colors to rows in Nautilus list view"
-msgstr "在 Nautilus 列表视图中为行应用交替颜色"
-
-msgid "Enable zebra striping"
-msgstr "启用斑马纹条纹"
-
-msgid "Requires Nautilus restart to apply"
-msgstr "需要重启 Nautilus 才能生效"
-
 msgid "Appearance"
 msgstr "外观"
 
@@ -78,5 +66,5 @@ msgstr "灰色，不透明度 5%"
 msgid "Note"
 msgstr "提示"
 
-msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
-msgstr "更改将在 Nautilus 重启后生效。\n使用面板中的快速切换按钮来启用/禁用。"
+msgid "Changes are applied when Nautilus restarts."
+msgstr "更改将在 Nautilus 重启后生效。"

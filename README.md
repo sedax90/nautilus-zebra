@@ -59,6 +59,14 @@ Then log out and log back in (required on Wayland), and enable the extension:
 gnome-extensions enable nautilus-zebra@cristian
 ```
 
+### Development (install & reload)
+
+```bash
+make install-local
+```
+
+Compiles schemas and translations, copies files to the extensions directory, and reloads the extension automatically.
+
 ### Build ZIP (for manual distribution)
 
 ```bash
@@ -74,19 +82,22 @@ make uninstall
 
 ## Usage
 
-1. Open **Quick Settings** (click the system area in the top bar)
-2. Toggle **Nautilus Zebra** on/off
-3. To customize, open the extension preferences:
-   ```bash
-   gnome-extensions prefs nautilus-zebra@cristian
-   ```
+Enable or disable the extension from **GNOME Extensions** or from the command line:
+
+```bash
+gnome-extensions enable nautilus-zebra@cristian
+gnome-extensions disable nautilus-zebra@cristian
+```
+
+To customize, open the extension preferences:
+
+```bash
+gnome-extensions prefs nautilus-zebra@cristian
+```
 
 ### CLI configuration
 
 ```bash
-# Enable/disable
-gsettings set org.gnome.shell.extensions.nautilus-zebra enabled true
-
 # Change color (RGBA format)
 gsettings set org.gnome.shell.extensions.nautilus-zebra stripe-color 'rgba(0,100,200,0.05)'
 

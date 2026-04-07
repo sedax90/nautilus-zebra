@@ -6,18 +6,6 @@ msgstr ""
 msgid "Nautilus Zebra"
 msgstr "Nautilus Zebra"
 
-msgid "Zebra Striping"
-msgstr "Zebrastreifen"
-
-msgid "Apply alternating colors to rows in Nautilus list view"
-msgstr "Abwechselnde Farben auf Zeilen in der Nautilus-Listenansicht anwenden"
-
-msgid "Enable zebra striping"
-msgstr "Zebrastreifen aktivieren"
-
-msgid "Requires Nautilus restart to apply"
-msgstr "Erfordert einen Neustart von Nautilus"
-
 msgid "Appearance"
 msgstr "Aussehen"
 
@@ -78,5 +66,5 @@ msgstr "Graue Farbe, 5% Deckkraft"
 msgid "Note"
 msgstr "Hinweis"
 
-msgid "Changes are applied when Nautilus restarts.\nUse the quick toggle in the panel to enable/disable."
-msgstr "Änderungen werden beim Neustart von Nautilus angewendet.\nVerwenden Sie den Schnellschalter im Panel zum Aktivieren/Deaktivieren."
+msgid "Changes are applied when Nautilus restarts."
+msgstr "Änderungen werden beim Neustart von Nautilus angewendet."

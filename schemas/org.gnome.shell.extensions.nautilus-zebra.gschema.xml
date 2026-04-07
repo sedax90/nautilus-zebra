@@ -3,12 +3,6 @@
   <schema id="org.gnome.shell.extensions.nautilus-zebra"
           path="/org/gnome/shell/extensions/nautilus-zebra/">
 
-    <key name="enabled" type="b">
-      <default>false</default>
-      <summary>Enable zebra striping</summary>
-      <description>Whether zebra striping is enabled in Nautilus list view</description>
-    </key>
-
     <key name="stripe-color" type="s">
       <default>'rgba(128,128,128,0.05)'</default>
       <summary>Stripe color</summary>
