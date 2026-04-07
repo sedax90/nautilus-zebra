@@ -76,6 +76,9 @@ async function applyCSS(settings) {
 .nautilus-list-view columnview > listview > row:nth-child(${parity}):not(:selected):not(:hover):not(:active) {
     background-color: rgba(${r},${g},${b},${a});
 }
+.nautilus-list-view columnview > listview > row:nth-child(${parity}):hover:not(:selected):not(:active) {
+    background-color: alpha(currentColor, 0.08);
+}
 ${MARKER_END}`;
 
     const dir = GLib.get_home_dir() + '/.config/gtk-4.0';
